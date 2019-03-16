@@ -13,6 +13,6 @@ function* startFetchData(action) {
   }
 }
 
-export default function* aSaga() {
+export default function* cardSaga() {
   yield takeEvery(types.START_FETCH_DATA, startFetchData);
 }
