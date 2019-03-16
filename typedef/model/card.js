@@ -1,7 +1,9 @@
 // @flow
 
 export type TCard = {
-  id: number,
   message: string,
-  name: string
+  employee_name: string,
+  employee_image: string,
+  prise_count: number,
+  created_at: string
 };

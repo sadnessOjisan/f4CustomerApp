@@ -35,21 +35,21 @@ type Props = {|
 |};
 
 class Cards extends React.Component<Props> {
-  state = {
-    // APIできない間はstat使っとく
-    isLoading: false,
-    isLoaded: true,
-    data: [
-      { id: 1, name: "hoge", message: "333" },
-      { id: 2, name: "hoge", message: "fe" },
-      { id: 3, name: "gg", message: "33ff3" },
-      { id: 4, name: "feeee", message: "123" },
-      { id: 5, name: "f", message: "r" },
-      { id: 6, name: "f", message: "r" }
-    ],
-    error: null,
-    cursor: 0
-  };
+  // state = {
+  //   // APIできない間はstat使っとく
+  //   isLoading: false,
+  //   isLoaded: true,
+  //   data: [
+  //     { id: 1, name: "hoge", message: "333" },
+  //     { id: 2, name: "hoge", message: "fe" },
+  //     { id: 3, name: "gg", message: "33ff3" },
+  //     { id: 4, name: "feeee", message: "123" },
+  //     { id: 5, name: "f", message: "r" },
+  //     { id: 6, name: "f", message: "r" }
+  //   ],
+  //   error: null,
+  //   cursor: 0
+  // };
 
   componentDidMount() {
     const { startFetchData } = this.props;
@@ -58,16 +58,16 @@ class Cards extends React.Component<Props> {
 
   _handleWaypointEnter = () => {
     const { startFetchMoreData } = this.props;
-    // startFetchMoreData();
-    this.setState({
-      data: [...this.state.data, ...this.state.data]
-    });
+    startFetchMoreData();
+    // this.setState({
+    //   data: [...this.state.data, ...this.state.data]
+    // });
   };
 
   render() {
     console.log(this.props);
-    // const { isLoading, isLoaded, data, error, cursor } = this.props;
-    const { isLoading, isLoaded, data, error, cursor } = this.state;
+    const { isLoading, isLoaded, data, error, cursor } = this.props;
+    // const { isLoading, isLoaded, data, error, cursor } = this.state;
     return (
       <Wrapper cursor={cursor}>
         <Header />
@@ -75,7 +75,7 @@ class Cards extends React.Component<Props> {
           <p>err</p>
         ) : isLoaded && data ? (
           <CardWrapper>
-            {data.map(card => {
+            {data.cards.map(card => {
               return <SCard card={card} />;
             })}
             <Waypoint onEnter={this._handleWaypointEnter} />

@@ -13,8 +13,6 @@ type Props = {
   card: TCard
 };
 
-const m = moment();
-
 const Card = (props: Props) => {
   const { className, card } = props;
   return (
@@ -22,13 +20,13 @@ const Card = (props: Props) => {
       <Header>
         <Text>To</Text>
         <ImageIcon size={28} />
-        <Text>{card.name}</Text>
+        <Text>{card.employee_name}</Text>
       </Header>
       <Body>
         <Text color={COLOR.normal}>{card.message}</Text>
       </Body>
       <Footer>
-        <Text>今日{m.format("HH:MM")}</Text>
+        <Text>{moment(card.created_at).format("MM/DD HH:MM")}</Text>
       </Footer>
     </Wrapper>
   );

@@ -2,7 +2,7 @@
 
 import { type TCard } from "../model/card";
 
-export type TCards = TCard[];
+export type TCards = { cards: TCard[] };
 
 export type CardRequest = {
   cursor: number, //どこまで取得したか
