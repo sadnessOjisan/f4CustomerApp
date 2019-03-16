@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from "react";
+import Router from "next/router";
 import { type Dispatch } from "redux";
 import styled from "styled-components";
 import { connect } from "react-redux";
@@ -37,8 +38,9 @@ type Props = {|
 class Post extends React.Component<Props> {
   componentDidMount() {
     const { error, employeeIsLoaded, startFetchData } = this.props;
+    const { id } = Router.router.query;
     if (!employeeIsLoaded || error) {
-      startFetchData();
+      startFetchData(id);
     }
   }
 
