@@ -26,7 +26,7 @@ switch (REACT_APP_ENV) {
     host = "https://f4.stg.eastgateganbaru.com";
     break;
   case ENVS.prd:
-    host = "https://f4.prd.eastgateganbaru.com";
+    host = "https://f4app.herokuapp.com";
     break;
   default:
     host = "aaaaaaaaaa";
