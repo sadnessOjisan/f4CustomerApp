@@ -23,7 +23,6 @@
     "start": "next start",
     "export": "next export",
     "deploy": "yarn run build && yarn run export",
-    "mock:local": "json-server ./db/db.json --routes ./db/routes.json --port 3004",
     "test": "jest",
     "flow": "flow"
   },
