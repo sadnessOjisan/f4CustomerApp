@@ -1,5 +1,8 @@
 // @flow
 
+import { type TCards } from "../../typedef/api/cards";
+import { type TError } from "../../typedef/api/error";
+
 const START_FETCH_DATA = "A/START_FETCH_DATA";
 const SUCCESS_FETCH_DATA = "A/SUCCESS_FETCH_DATA";
 const FAIL_FETCH_DATA = "A/FAIL_FETCH_DATA";
@@ -10,18 +13,44 @@ export const types = {
   FAIL_FETCH_DATA
 };
 
+type startFetchDataAction = {|
+  +type: typeof START_FETCH_DATA
+|};
+
+type successFetchDataAction = {|
+  +type: typeof SUCCESS_FETCH_DATA,
+  +payload: TCards
+|};
+
+type failFetchDataAction = {|
+  +type: typeof FAIL_FETCH_DATA,
+  +payload: TError
+|};
+
+type Action =
+  | startFetchDataAction
+  | successFetchDataAction
+  | failFetchDataAction;
+
 export const actions = {
-  startFetchData: () => ({
+  startFetchData: (): startFetchDataAction => ({
     type: types.START_FETCH_DATA
   }),
-  successFetchData: data => ({
+  successFetchData: (data: TCards): successFetchDataAction => ({
     type: types.SUCCESS_FETCH_DATA,
     payload: data
   }),
-  failFetchData: err => ({
+  failFetchData: (err: TError): failFetchDataAction => ({
     type: types.FAIL_FETCH_DATA,
     payload: err
   })
+};
+
+type State = {
+  isLoading: boolean,
+  isLoaded: boolean,
+  data: TCards | null,
+  error: TError | null
 };
 
 const initialState: State = {
@@ -31,7 +60,7 @@ const initialState: State = {
   error: null
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state: State = initialState, action: Action) => {
   switch (action.type) {
     case types.START_FETCH_DATA:
       return { ...state, isLoading: true, error: null };
