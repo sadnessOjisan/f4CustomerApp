@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getUrl } from "../helpers/util";
 
-const sampleAPI = {
+const employeeAPI = {
   fetchEmployee() {
     return axios
       .get(getUrl("employee"))
@@ -14,4 +14,4 @@ const sampleAPI = {
   }
 };
 
-export default sampleAPI;
+export default employeeAPI;
