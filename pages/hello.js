@@ -14,7 +14,7 @@ class Hello extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        hell0
+        hell0e
         <style jsx>{`
           .wrapper {
             display: flex;
