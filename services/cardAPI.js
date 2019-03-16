@@ -1,9 +1,20 @@
 import axios from "axios";
+import { getUrl } from "../helpers/util";
 
 const sampleAPI = {
-  fetchSample(id) {
+  fetchCards() {
     return axios
-      .get("http://fjpiwejfew.com", {
+      .get(getUrl("cards"))
+      .then(response => ({
+        payload: response.data
+      }))
+      .catch(error => ({
+        error
+      }));
+  },
+  fetchCard(id) {
+    return axios
+      .get(getUrl("cards"), {
         params: {
           id
         }

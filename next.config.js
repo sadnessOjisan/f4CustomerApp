@@ -10,6 +10,6 @@ module.exports = {
     return config;
   },
   publicRuntimeConfig: {
-    REACT_APP_ENV: JSON.stringify(process.env.REACT_APP_ENV)
+    REACT_APP_ENV: process.env.REACT_APP_ENV
   }
 };

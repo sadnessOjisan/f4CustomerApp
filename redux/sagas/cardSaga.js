@@ -9,8 +9,7 @@ import { throwError } from "../../helpers/util";
 
 function* startFetchData(action) {
   const { payload, error }: { payload: TCards, error: TError } = yield call(
-    cardAPI.fetchSample,
-    1
+    cardAPI.fetchCards
   );
   if (payload && !error) {
     yield put(actions.successFetchData(payload));
