@@ -11,7 +11,6 @@ console.log(
   "publicRuntimeConfig.REACT_APP_ENV",
   publicRuntimeConfig.REACT_APP_ENV
 );
-console.log("ENVS.local", ENVS.local);
 
 let host;
 
