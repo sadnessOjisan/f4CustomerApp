@@ -16,7 +16,7 @@
     "build": "NODE_ENV=production REACT_APP_ENV=development next build",
     "start": "REACT_APP_ENV=1 next start",
     "export": "next export",
-    "deploy": "npm run build && npm run export",
+    "deploy": "yarn run build && yarn run export",
     "mock:local": "json-server ./db/db.json --routes ./db/routes.json --port 3004"
   },
   "devDependencies": {
