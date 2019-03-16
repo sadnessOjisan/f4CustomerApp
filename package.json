@@ -13,6 +13,7 @@
     "next": "^8.0.3",
     "next-redux-saga": "^4.0.1",
     "react": "^16.8.4",
+    "react-confetti": "^2.6.1",
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
     "react-waypoint": "^9.0.1",
