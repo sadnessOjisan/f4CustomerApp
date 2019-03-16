@@ -35,7 +35,9 @@ class Hello extends React.Component<Props> {
     const { isLoading, isLoaded, data, error } = this.props;
     return (
       <div className="wrapper">
-        {isLoaded && data ? (
+        {error ? (
+          <p>err</p>
+        ) : isLoaded && data ? (
           data.map(d => {
             return <p>{d.id}</p>;
           })
