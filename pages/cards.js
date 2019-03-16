@@ -1,5 +1,6 @@
 // @flow
 
+import Router from "next/router";
 import * as React from "react";
 import { type Dispatch } from "redux";
 import styled from "styled-components";
@@ -12,6 +13,8 @@ import { type Store } from "../redux/modules";
 import { type TCards } from "../typedef/api/cards";
 import { type TError } from "../typedef/api/error";
 import COLOR from "../constatns/color";
+import Button from "../components/common/Button";
+import Text from "../components/common/Text";
 
 type MapStateToProps = {|
   +isLoading: boolean,
@@ -76,6 +79,16 @@ class Cards extends React.Component<Props> {
               return <SCard card={card} />;
             })}
             <Waypoint onEnter={this._handleWaypointEnter} />
+            <SButton
+              onClick={() => {
+                Router.push("/post");
+              }}
+            >
+              <SImage src="/static/plane.png" />
+              <Text color={COLOR.white} size={12}>
+                メッセージを送信する
+              </Text>
+            </SButton>
           </CardWrapper>
         ) : (
           <p>loading</p>
@@ -105,6 +118,19 @@ const CardWrapper = styled.div`
 const SCard = styled(Card)`
   margin-top: 12px;
   box-shadow: 0 1px 5px 0 rgba(157, 157, 157, 0.5);
+`;
+
+const SButton = styled(Button)`
+  position: fixed;
+  width: 80%;
+  left: 10%;
+  bottom: 12px;
+`;
+
+const SImage = styled.img`
+  height: 18px;
+  width: 18px;
+  margin-right: 8px;
 `;
 
 const mapStateToProps = (state: Store): MapStateToProps => ({

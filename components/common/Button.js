@@ -4,12 +4,17 @@ import COLOR from "../../constatns/color";
 
 type Props = {
   className: string,
-  children: React.Node
+  children: React.Node,
+  onClick: void => void
 };
 
 const Button = (props: Props) => {
-  const { className, children } = props;
-  return <SButton className={className}>{children}</SButton>;
+  const { className, children, onClick } = props;
+  return (
+    <SButton className={className} onClick={onClick}>
+      {children}
+    </SButton>
+  );
 };
 
 const SButton = styled.button`
