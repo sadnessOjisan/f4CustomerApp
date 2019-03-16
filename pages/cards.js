@@ -39,8 +39,8 @@ class Hello extends React.Component<Props> {
         {error ? (
           <p>err</p>
         ) : isLoaded && data ? (
-          data.map(d => {
-            return <Card>{d.id}</Card>;
+          data.map(card => {
+            return <Card card={card} />;
           })
         ) : (
           <p>loading</p>

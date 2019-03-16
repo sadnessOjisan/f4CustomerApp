@@ -1,5 +1,8 @@
 import Palette from "./pallet";
 
-export default {
-  important: Palette.red
+const COLOR = {
+  important: Palette.red,
+  background: Palette.white
 };
+
+export default COLOR;

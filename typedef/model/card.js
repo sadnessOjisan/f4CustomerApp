@@ -2,5 +2,6 @@
 
 export type TCard = {
   id: number,
-  message: string
+  message: string,
+  name: string
 };

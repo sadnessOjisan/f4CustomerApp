@@ -1,3 +1,6 @@
 const red = "red";
+const white = "#f6f2f2";
 
-export default { red };
+const Pallet = { red, white };
+
+export default Pallet;
