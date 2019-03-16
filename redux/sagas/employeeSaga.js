@@ -21,7 +21,6 @@ function* startFetchDataSaga(action) {
   } else if (error) {
     yield put(actions.failFetchData(error));
     yield take(actions.failFetchData);
-    yield call(Router.push, "/posted");
   } else {
     throwError("bye");
   }

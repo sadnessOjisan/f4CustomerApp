@@ -1,5 +1,10 @@
 {
-  "employee": { "id": 1, "name": "みりんたそ", "company": "ふりんじ１８" },
+  "employee": {
+    "id": "33333333-3333-3333-3333-333333333333",
+    "name": "井出優太",
+    "nick_name": "いでっち",
+    "faceImage": "http://i.pravatar.cc/150?img=9"
+  },
   "cards": {
     "cards": [
       {

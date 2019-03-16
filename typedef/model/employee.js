@@ -1,7 +1,8 @@
 // @flow
 
 export type TEmployee = {
-  id: number,
+  id: string,
   name: string,
-  company: string
+  nick_name: string,
+  faceImage: string
 };

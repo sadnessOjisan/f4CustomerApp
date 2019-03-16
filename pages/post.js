@@ -59,7 +59,7 @@ class Post extends React.Component<Props> {
               <Text color={COLOR.warmGrey} size={12}>
                 To
               </Text>
-              <ImageInput size={32} />
+              <ImageInput size={32} src={employeeData.faceImage} />
               <Text color={COLOR.warmBlack} size={12}>
                 {employeeData.name}
               </Text>
