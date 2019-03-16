@@ -32,16 +32,7 @@ class Hello extends React.Component<Props> {
 
   render() {
     console.log("this.props: ", this.props);
-    return (
-      <div className="wrapper">
-        hell0e
-        <style jsx>{`
-          .wrapper {
-            display: flex;
-          }
-        `}</style>
-      </div>
-    );
+    return <div className="wrapper">hell0e</div>;
   }
 }
 

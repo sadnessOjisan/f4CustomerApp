@@ -1,6 +1,7 @@
 require("dotenv").config();
 const webpack = require("webpack");
-module.exports = {
+const withCSS = require("@zeit/next-css");
+module.exports = withCSS({
   webpack: (config, { dev }) => {
     config.plugins.push(
       new webpack.DefinePlugin({
@@ -12,4 +13,4 @@ module.exports = {
   publicRuntimeConfig: {
     REACT_APP_ENV: process.env.REACT_APP_ENV
   }
-};
+});

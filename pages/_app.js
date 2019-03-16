@@ -1,8 +1,10 @@
 import App, { Container } from "next/app";
 import React from "react";
 import { Provider } from "react-redux";
+import { createGlobalStyle } from "styled-components";
 import withReduxStore from "../redux/with-redux-store";
 import withReduxSaga from "next-redux-saga";
+import reset from "../vendor/reset.css";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
