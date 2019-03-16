@@ -1,6 +1,7 @@
 // @flow
 
-import { call, takeEvery, put, select } from "redux-saga/effects";
+import Router from "next/router";
+import { call, takeEvery, put, select, take } from "redux-saga/effects";
 import { types, actions } from "../modules/employee";
 import { type TEmployee } from "../../typedef/api/employee";
 import { type TError } from "../../typedef/api/error";
@@ -15,8 +16,12 @@ function* startFetchDataSaga(action) {
   );
   if (payload && !error) {
     yield put(actions.successFetchData(payload));
+    yield take(actions.successFetchData);
+    yield call(Router.push, "/posted");
   } else if (error) {
     yield put(actions.failFetchData(error));
+    yield take(actions.failFetchData);
+    yield call(Router.push, "/posted");
   } else {
     throwError("bye");
   }
