@@ -21,7 +21,7 @@
     "dev": "REACT_APP_ENV=1 next src",
     "build": "NODE_ENV=production REACT_APP_ENV=development next build src",
     "start": "REACT_APP_ENV=1 next start src",
-    "export": "next export src",
+    "export": "next export src -o out",
     "deploy": "yarn run build && yarn run export",
     "mock:local": "json-server ./db/db.json --routes ./db/routes.json --port 3004"
   },

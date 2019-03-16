@@ -17,8 +17,7 @@ module.exports = {
   },
   exportPathMap: function() {
     return {
-      "/": { page: "./src/pages/hello" },
-      "/hello": { page: "/hello" }
+      "/": { page: "hello" }
     };
   }
 };
