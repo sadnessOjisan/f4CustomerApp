@@ -9,6 +9,7 @@ import { withFormik } from "formik";
 import Header from "../components/Header";
 import ImageInput from "../components/common/ImageIcon";
 import { actions } from "../redux/modules/employee";
+import { actions as messageActions } from "../redux/modules/messagePost";
 import { type Store } from "../redux/modules";
 import { type TCards } from "../typedef/api/employee";
 import { type TError } from "../typedef/api/error";
@@ -24,7 +25,8 @@ type MapStateToProps = {|
 |};
 
 type MapDispatchToProps = {|
-  +startFetchData: typeof actions.startFetchData
+  +startFetchData: typeof actions.startFetchData,
+  +startPostValue: typeof messageActions.startPostValue
 |};
 
 type Props = {|
@@ -138,19 +140,19 @@ const mapStateToProps = (state: Store): MapStateToProps => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
   startFetchData: () => dispatch(actions.startFetchData()),
-  startFetchMoreData: () => dispatch(actions.startFetchMoreData())
+  startPostValue: value => dispatch(messageActions.startPostValue(value))
 });
 
-export default withFormik({
-  mapPropsToValues: () => ({ message: "" }),
-  handleSubmit: values => {
-    console.log("values: ", values);
-    setTimeout(() => {}, 1000);
-  },
-  displayName: "BasicForm"
-})(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Post)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(
+  withFormik({
+    mapPropsToValues: () => ({ message: "" }),
+    handleSubmit: (values, { props }) => {
+      const { startPostValue } = props;
+      startPostValue(values);
+    },
+    displayName: "BasicForm"
+  })(Post)
 );

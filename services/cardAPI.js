@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getUrl } from "../helpers/util";
 
-const sampleAPI = {
+const cardAPI = {
   fetchCards(count: number) {
     const Length = 10;
     return axios
@@ -34,4 +34,4 @@ const sampleAPI = {
   }
 };
 
-export default sampleAPI;
+export default cardAPI;
