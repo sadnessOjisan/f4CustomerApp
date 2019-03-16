@@ -1,5 +1,6 @@
 require("dotenv").config();
 const webpack = require("webpack");
+console.log("JSON.stringify(process): ", JSON.stringify(process));
 module.exports = {
   webpack: (config, { dev }) => {
     config.plugins.push(new webpack.EnvironmentPlugin(process.env));
