@@ -23,7 +23,8 @@
     "start": "REACT_APP_ENV=1 next start",
     "export": "next export",
     "deploy": "yarn run build && yarn run export",
-    "mock:local": "json-server ./db/db.json --routes ./db/routes.json --port 3004"
+    "mock:local": "json-server ./db/db.json --routes ./db/routes.json --port 3004",
+    "flow": "flow"
   },
   "devDependencies": {
     "babel-plugin-transform-flow-strip-types": "^6.22.0",

@@ -79,6 +79,7 @@ const reducer = (state: State = initialState, action: Action) => {
         error: action.payload
       };
     default:
+      (action: empty);
       return state;
   }
 };
