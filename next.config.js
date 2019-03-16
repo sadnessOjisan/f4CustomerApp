@@ -14,5 +14,10 @@ module.exports = {
   //   }
   publicRuntimeConfig: {
     PROCESS: JSON.stringify(process.env.REACT_APP_ENV)
+  },
+  exportPathMap: function() {
+    return {
+      "/": { page: "/hello" }
+    };
   }
 };
