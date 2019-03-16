@@ -5,6 +5,7 @@ import { type Dispatch } from "redux";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { Waypoint } from "react-waypoint";
+import { withFormik } from "formik";
 import Header from "../components/Header";
 import ImageInput from "../components/common/ImageIcon";
 import { actions } from "../redux/modules/employee";
@@ -46,6 +47,8 @@ class Post extends React.Component<Props> {
       employeeIsLoading,
       employeeData
     } = this.props;
+    console.log("this.props:", this.props);
+    const { handleSubmit, handleChange } = this.props;
     return (
       <Wrapper>
         {employeeData && employeeIsLoaded && !error ? (
@@ -59,13 +62,19 @@ class Post extends React.Component<Props> {
                 {employeeData.name}
               </Text>
             </Row>
-            <Input placeholder="aaaaaaaa" />
-            <SButton>
-              <SImage src="/static/plane.png" />
-              <Text color={COLOR.white} size={12}>
-                メッセージを送信する
-              </Text>
-            </SButton>
+            <Form onSubmit={handleSubmit}>
+              <Input
+                placeholder="aaaaaaaa"
+                name="message"
+                onChange={handleChange}
+              />
+              <SButton type="submit">
+                <SImage src="/static/plane.png" />
+                <Text color={COLOR.white} size={12}>
+                  メッセージを送信する
+                </Text>
+              </SButton>
+            </Form>
           </React.Fragment>
         ) : (
           `employeeIsLoaded:${employeeIsLoaded}`
@@ -92,6 +101,10 @@ const Row = styled.div`
   > * {
     margin-right: 8px;
   }
+`;
+
+const Form = styled.form`
+  width: 100%;
 `;
 
 const Input = styled.textarea`
@@ -128,7 +141,16 @@ const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
   startFetchMoreData: () => dispatch(actions.startFetchMoreData())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Post);
+export default withFormik({
+  mapPropsToValues: () => ({ message: "" }),
+  handleSubmit: values => {
+    console.log("values: ", values);
+    setTimeout(() => {}, 1000);
+  },
+  displayName: "BasicForm"
+})(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Post)
+);
