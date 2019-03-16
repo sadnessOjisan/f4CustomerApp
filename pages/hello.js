@@ -12,8 +12,8 @@ import { type TError } from "../typedef/api/error";
 type MapStateToProps = {|
   +isLoading: boolean,
   +isLoaded: boolean,
-  +data: TCards,
-  +error: TError
+  +data: TCards | null,
+  +error: TError | null
 |};
 
 type MapDispatchToProps = {|
