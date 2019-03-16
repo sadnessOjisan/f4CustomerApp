@@ -66,7 +66,7 @@ class Post extends React.Component<Props> {
             </Row>
             <Form onSubmit={handleSubmit}>
               <Input
-                placeholder="aaaaaaaa"
+                placeholder="メッセージを添える&#x000D;&#x000A;例: 今日はありがとうございました。"
                 name="message"
                 onChange={handleChange}
               />
