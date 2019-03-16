@@ -24,4 +24,4 @@ class MyApp extends App {
   }
 }
 
-export default withReduxStore(withReduxSaga(MyApp));
+export default MyApp;
