@@ -19,10 +19,10 @@ const SButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 32px;
+  height: 42px;
   outline: 0;
   border: 0;
-  border-radius: 8px;
+  border-radius: 21px;
 `;
 
 export default Button;

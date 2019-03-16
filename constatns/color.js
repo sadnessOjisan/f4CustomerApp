@@ -6,7 +6,9 @@ const COLOR = {
   background: Palette.white,
   peachYellow: Palette.peachyPink,
   peachPink: Pallet.rosyPink,
-  white: "#ffffff"
+  warmGrey: Pallet.grey,
+  white: "#ffffff",
+  warmBlack: Palette.black
 };
 
 export default COLOR;

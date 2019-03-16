@@ -6,16 +6,18 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { Waypoint } from "react-waypoint";
 import Header from "../components/Header";
+import ImageInput from "../components/common/ImageIcon";
 import { actions } from "../redux/modules/employee";
 import { type Store } from "../redux/modules";
 import { type TCards } from "../typedef/api/employee";
 import { type TError } from "../typedef/api/error";
 import COLOR from "../constatns/color";
 import Button from "../components/common/Button";
+import Text from "../components/common/Text";
 
 type MapStateToProps = {|
-  +isLoading: boolean,
-  +isLoaded: boolean,
+  +employeeIsLoading: boolean,
+  +employeeIsLoaded: boolean,
   +data: TCards | null,
   +error: TError | null
 |};
@@ -31,18 +33,43 @@ type Props = {|
 
 class Post extends React.Component<Props> {
   componentDidMount() {
-    const { error, isLoaded, startFetchData } = this.props;
-    if (!isLoaded || error) {
+    const { error, employeeIsLoaded, startFetchData } = this.props;
+    if (!employeeIsLoaded || error) {
       startFetchData();
     }
   }
 
   render() {
+    const {
+      error,
+      employeeIsLoaded,
+      employeeIsLoading,
+      employeeData
+    } = this.props;
     return (
       <Wrapper>
-        <Row>ss</Row>
-        <Input placeholder="aaaaaaaa" />
-        <SButton>a</SButton>
+        {employeeData && employeeIsLoaded && !error ? (
+          <React.Fragment>
+            <Row>
+              <Text color={COLOR.warmGrey} size={12}>
+                To
+              </Text>
+              <ImageInput size={32} />
+              <Text color={COLOR.warmBlack} size={12}>
+                {employeeData.name}
+              </Text>
+            </Row>
+            <Input placeholder="aaaaaaaa" />
+            <SButton>
+              <SImage src="/static/plane.png" />
+              <Text color={COLOR.white} size={12}>
+                メッセージを送信する
+              </Text>
+            </SButton>
+          </React.Fragment>
+        ) : (
+          `employeeIsLoaded:${employeeIsLoaded}`
+        )}
       </Wrapper>
     );
   }
@@ -59,12 +86,29 @@ const Wrapper = styled.div`
 
 const Row = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  > * {
+    margin-right: 8px;
+  }
 `;
 
 const Input = styled.textarea`
-  width: 100%;
+  width: 90%;
   outline: 0;
   margin-top: 12px;
+  height: 200px;
+  border-radius: 8px;
+  border: 0;
+  padding: 16px;
+  display: block;
+`;
+
+const SImage = styled.img`
+  height: 18px;
+  width: 18px;
+  margin-right: 8px;
 `;
 
 const SButton = styled(Button)`
