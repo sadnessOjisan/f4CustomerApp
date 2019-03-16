@@ -57,6 +57,7 @@ class Cards extends React.Component<Props> {
     const { startFetchData, startFetchEmployeeData } = this.props;
     const { id } = Router.router.query;
     console.log(id);
+    console.log(Router);
     startFetchEmployeeData(id);
     startFetchData();
   }
