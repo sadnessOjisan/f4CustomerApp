@@ -1,15 +1,19 @@
 // @flow
 
 import * as React from "react";
+import { type Dispatch } from "redux";
 import { connect } from "react-redux";
 import getConfig from "next/config";
 import { actions } from "../redux/modules/card";
+import { type Store } from "../redux/modules";
+import { type TCards } from "../typedef/api/cards";
+import { type TError } from "../typedef/api/error";
 
 type MapStateToProps = {|
   +isLoading: boolean,
   +isLoaded: boolean,
-  +data: Object,
-  +error: Object
+  +data: TCards,
+  +error: TError
 |};
 
 type MapDispatchToProps = {|
@@ -44,4 +48,18 @@ class Hello extends React.Component<Props> {
   }
 }
 
-export default connect()(Hello);
+const mapStateToProps = (state: Store): MapStateToProps => ({
+  isLoading: state.card.isLoading,
+  isLoaded: state.card.isLoaded,
+  data: state.card.data,
+  error: state.card.error
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
+  startFetchData: () => dispatch(actions.startFetchData())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Hello);
