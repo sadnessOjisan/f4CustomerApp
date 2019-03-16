@@ -12,15 +12,16 @@ type Props = {
   bold?: boolean
 };
 
-const Card = (props: Props) => {
+const Text = (props: Props) => {
   const { className, children } = props;
-  return <Text {...props}>{children}</Text>;
+  return <SText {...props}>{children}</SText>;
 };
 
-const Text = styled.span`
+const SText = styled.span`
   font-size: ${(props: Props) => (props.size ? props.size : 16)}px;
-  color: ${(props: Props) => (props.color ? props.color : "black")};
-  font-weight: ${(props: Props) => props.color && "bold"};
+  color: ${(props: Props) => (props.color ? props.color : COLOR.normal)};
+  font-weight: ${(props: Props) => props.bold && "bold"};
+  line-height: 1.5;
 `;
 
-export default Card;
+export default Text;

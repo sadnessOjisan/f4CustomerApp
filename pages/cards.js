@@ -84,6 +84,7 @@ const CardWrapper = styled.div`
 
 const SCard = styled(Card)`
   margin-top: 12px;
+  box-shadow: 0 1px 5px 0 rgba(157, 157, 157, 0.5);
 `;
 
 const mapStateToProps = (state: Store): MapStateToProps => ({

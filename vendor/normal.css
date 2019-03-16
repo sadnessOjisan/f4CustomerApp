@@ -2,6 +2,7 @@ html,
 body {
   height: 100vh;
   background-color: #f6f2f2;
+  font-family: HiraginoSans-W3;
 }
 
 #__next {
