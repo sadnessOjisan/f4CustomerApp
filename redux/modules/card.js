@@ -3,9 +3,9 @@
 import { type TCards } from "../../typedef/api/cards";
 import { type TError } from "../../typedef/api/error";
 
-const START_FETCH_DATA = "A/START_FETCH_DATA";
-const SUCCESS_FETCH_DATA = "A/SUCCESS_FETCH_DATA";
-const FAIL_FETCH_DATA = "A/FAIL_FETCH_DATA";
+const START_FETCH_DATA = "CARD/START_FETCH_DATA";
+const SUCCESS_FETCH_DATA = "CARD/SUCCESS_FETCH_DATA";
+const FAIL_FETCH_DATA = "CARD/FAIL_FETCH_DATA";
 
 export const types = {
   START_FETCH_DATA,
@@ -46,7 +46,7 @@ export const actions = {
   })
 };
 
-type State = {
+export type State = {
   isLoading: boolean,
   isLoaded: boolean,
   data: TCards | null,
