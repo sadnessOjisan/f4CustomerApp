@@ -1,0 +1,9 @@
+html,
+body {
+  height: 100vh;
+  background-color: #f6f2f2;
+}
+
+#__next {
+  height: 100%;
+}

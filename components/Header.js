@@ -9,14 +9,24 @@ import ImageIcon from "../components/common/ImageIcon";
 const Header = () => {
   return (
     <Wrapper>
-      <Row>F4 Tip サービス</Row>
-      <Row>東大宮店の店員が過去にもらったメッセージ</Row>
+      <Row>
+        <Text color={COLOR.background} size={20} bold={true}>
+          F4 Tip サービス
+        </Text>
+      </Row>
+      <Row>
+        <Text color={COLOR.background} size={14}>
+          東大宮店の店員が過去にもらったメッセージ
+        </Text>
+      </Row>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  background-color: pink;
+  background: ${`linear-gradient(90deg, ${COLOR.peachYellow}, ${
+    COLOR.peachPink
+  })`};
   height: 164px;
   width: 100%;
   display: flex;
@@ -27,6 +37,7 @@ const Wrapper = styled.div`
 const Row = styled.div`
   text-align: center;
   margin-top: 16px;
+  margin-bottom: 28px;
 `;
 
 export default Header;

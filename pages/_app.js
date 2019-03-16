@@ -5,6 +5,7 @@ import { createGlobalStyle } from "styled-components";
 import withReduxStore from "../redux/with-redux-store";
 import withReduxSaga from "next-redux-saga";
 import reset from "../vendor/reset.css";
+import normal from "../vendor/normal.css";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {

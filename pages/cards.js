@@ -11,12 +11,14 @@ import { actions } from "../redux/modules/card";
 import { type Store } from "../redux/modules";
 import { type TCards } from "../typedef/api/cards";
 import { type TError } from "../typedef/api/error";
+import COLOR from "../constatns/color";
 
 type MapStateToProps = {|
   +isLoading: boolean,
   +isLoaded: boolean,
   +data: TCards | null,
-  +error: TError | null
+  +error: TError | null,
+  +cursor: number
 |};
 
 type MapDispatchToProps = {|
@@ -42,9 +44,9 @@ class Hello extends React.Component<Props> {
 
   render() {
     console.log(this.props);
-    const { isLoading, isLoaded, data, error } = this.props;
+    const { isLoading, isLoaded, data, error, cursor } = this.props;
     return (
-      <Wrapper>
+      <Wrapper cursor={cursor}>
         <Header />
         {error ? (
           <p>err</p>
@@ -68,10 +70,14 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  background-color: ${COLOR.background};
+  height: ${props => {
+    return (props.cursor + 1) * 100;
+  }}%;
 `;
 
 const CardWrapper = styled.div`
-  width: 80%;
+  width: 90%;
   position: absolute;
   top: 120px;
 `;
@@ -84,7 +90,8 @@ const mapStateToProps = (state: Store): MapStateToProps => ({
   isLoading: state.card.isLoading,
   isLoaded: state.card.isLoaded,
   data: state.card.data,
-  error: state.card.error
+  error: state.card.error,
+  cursor: state.card.cursor
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({

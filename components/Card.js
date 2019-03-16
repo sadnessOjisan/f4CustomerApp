@@ -28,7 +28,7 @@ const Card = (props: Props) => {
 };
 
 const Wrapper = styled.div`
-  background-color: ${COLOR.background};
+  background-color: ${COLOR.white};
   padding: 8px 12px;
   display: flex;
   flex-direction: column;
