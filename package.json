@@ -17,10 +17,10 @@
     "redux-saga": "^1.0.2"
   },
   "scripts": {
-    "dev": "REACT_APP_ENV=1 next",
-    "build": "NODE_ENV=production REACT_APP_ENV=development next build",
-    "start": "REACT_APP_ENV=1 next start",
-    "export": "next export",
+    "dev": "REACT_APP_ENV=1 next src",
+    "build": "NODE_ENV=production REACT_APP_ENV=development next build src",
+    "start": "REACT_APP_ENV=1 next start src",
+    "export": "next export src",
     "deploy": "yarn run build && yarn run export",
     "mock:local": "json-server ./db/db.json --routes ./db/routes.json --port 3004"
   },
