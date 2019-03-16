@@ -16,5 +16,14 @@ module.exports = {
       }
     }
     return config;
+  },
+  serverRuntimeConfig: {
+    // Will only be available on the server side
+    mySecret: "secret",
+    secondSecret: process.env.REACT_APP_ENV // Pass through env variables
+  },
+  publicRuntimeConfig: {
+    // Will be available on both server and client
+    staticFolder: "/static"
   }
 };
