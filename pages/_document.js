@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
           <link
             rel="icon"
             type="image/png"
-            href="・/static/plane.png"
+            href="/static/plane.png"
             sizes="128x128"
           />
         </Head>
