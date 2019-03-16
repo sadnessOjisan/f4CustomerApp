@@ -5,9 +5,8 @@ import getConfig from "next/config";
 
 class Hello extends React.Component {
   componentDidMount() {
-    const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
-    console.log(serverRuntimeConfig.mySecret); // Will only be available on the server side
-    console.log(publicRuntimeConfig.staticFolder); // Will be available on both server and client
+    const { publicRuntimeConfig } = getConfig();
+    console.log("publicRuntimeConfig", publicRuntimeConfig); // Will be available on both server and client
     console.log("process: ", process);
     console.log("process.env: ", process.env);
   }
