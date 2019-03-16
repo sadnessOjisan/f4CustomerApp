@@ -3,6 +3,8 @@ import React from "react";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
+    console.log("process: ", process);
+    console.log("process.env: ", process.env);
     let pageProps = {};
 
     if (Component.getInitialProps) {
