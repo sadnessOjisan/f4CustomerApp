@@ -8,7 +8,6 @@ import { actions } from "../redux/modules/card";
 import { type Store } from "../redux/modules";
 import { type TCards } from "../typedef/api/cards";
 import { type TError } from "../typedef/api/error";
-import G from "../vendor/resetCSS";
 
 type MapStateToProps = {|
   +isLoading: boolean,
@@ -46,7 +45,6 @@ class Hello extends React.Component<Props> {
         ) : (
           <p>loading</p>
         )}
-        <G />
       </div>
     );
   }
