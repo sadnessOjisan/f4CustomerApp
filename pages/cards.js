@@ -3,6 +3,7 @@
 import * as React from "react";
 import { type Dispatch } from "redux";
 import { connect } from "react-redux";
+import Card from "../components/Card";
 import { actions } from "../redux/modules/card";
 import { type Store } from "../redux/modules";
 import { type TCards } from "../typedef/api/cards";
@@ -39,7 +40,7 @@ class Hello extends React.Component<Props> {
           <p>err</p>
         ) : isLoaded && data ? (
           data.map(d => {
-            return <p>{d.id}</p>;
+            return <Card>{d.id}</Card>;
           })
         ) : (
           <p>loading</p>

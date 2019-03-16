@@ -15,7 +15,8 @@
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^1.0.2"
+    "redux-saga": "^1.0.2",
+    "styled-components": "^4.1.3"
   },
   "scripts": {
     "dev:local": "REACT_APP_ENV=local next",
@@ -28,6 +29,7 @@
     "mock:local": "json-server ./db/db.json --routes ./db/routes.json -p 3010"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.10.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "flow-bin": "^0.95.1",
     "jest": "^24.5.0",
