@@ -74,8 +74,9 @@ export const actions = {
     type: types.SUCCESS_FETCH_MORE_DATA,
     payload: data
   }),
-  failFetchMoreData: (): failFetchMoreDataAction => ({
-    type: types.FAIL_FETCH_MORE_DATA
+  failFetchMoreData: (error: TError): failFetchMoreDataAction => ({
+    type: types.FAIL_FETCH_MORE_DATA,
+    payload: error
   })
 };
 
@@ -96,7 +97,6 @@ const initialState: State = {
 };
 
 const reducer = (state: State = initialState, action: Action) => {
-  console.log(action.type);
   switch (action.type) {
     case types.START_FETCH_DATA:
       return { ...state, isLoading: true, error: null };
@@ -115,17 +115,24 @@ const reducer = (state: State = initialState, action: Action) => {
         isLoaded: true,
         error: action.payload
       };
+    case types.START_FETCH_MORE_DATA:
+      return {
+        ...state
+      };
     case types.SUCCESS_FETCH_MORE_DATA:
-      console.log("[...state.data, action.payload]", [
-        ...state.data,
-        action.payload
-      ]);
       return {
         ...state,
         isLoading: false,
         isLoaded: true,
-        data: [...state.data, ...action.payload],
+        data: state.data ? [...state.data, ...action.payload] : action.payload,
         cursor: state.cursor + 1
+      };
+    case types.FAIL_FETCH_MORE_DATA:
+      return {
+        ...state,
+        isLoading: false,
+        isLoaded: true,
+        error: action.payload
       };
     default:
       (action: empty);
