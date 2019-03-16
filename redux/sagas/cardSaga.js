@@ -5,6 +5,7 @@ import { types, actions } from "../modules/card";
 import { type TCards } from "../../typedef/api/cards";
 import { type TError } from "../../typedef/api/error";
 import cardAPI from "../../services/cardAPI";
+import { throwError } from "../../helpers/util";
 
 function* startFetchData(action) {
   const { payload, error }: { payload: TCards, error: TError } = yield call(
@@ -16,7 +17,7 @@ function* startFetchData(action) {
   } else if (error) {
     yield put(actions.failFetchData(error));
   } else {
-    throw new Error("bye");
+    throwError("bye");
   }
 }
 

@@ -22,7 +22,6 @@ export const throwError = (message: string) => {
       console.error(message);
       break;
     default:
-      (REACT_APP_ENV: empty);
       console.error(message);
   }
 };
