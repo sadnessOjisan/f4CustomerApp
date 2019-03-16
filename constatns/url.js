@@ -1,10 +1,15 @@
 // @flow
 import ENVS from "./env";
+import getConfig from "next/config";
 
-const ENV = process.env.REACT_APP_ENV;
+const { publicRuntimeConfig } = getConfig()
+  ? getConfig()
+  : { publicRuntimeConfig: { REACT_APP_ENV: null } };
+const { REACT_APP_ENV } = publicRuntimeConfig;
+
 let host;
 
-switch (ENV) {
+switch (REACT_APP_ENV) {
   case ENVS.local:
     host = "http://localhost:3000";
     break;

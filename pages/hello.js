@@ -3,7 +3,6 @@
 import * as React from "react";
 import { type Dispatch } from "redux";
 import { connect } from "react-redux";
-import getConfig from "next/config";
 import { actions } from "../redux/modules/card";
 import { type Store } from "../redux/modules";
 import { type TCards } from "../typedef/api/cards";
@@ -27,10 +26,8 @@ type Props = {|
 
 class Hello extends React.Component<Props> {
   componentDidMount() {
-    const { publicRuntimeConfig } = getConfig();
-    console.log("publicRuntimeConfig", publicRuntimeConfig); // Will be available on both server and client
-    console.log("process: ", process);
-    console.log("process.env: ", process.env);
+    const { startFetchData } = this.props;
+    startFetchData();
   }
 
   render() {
