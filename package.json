@@ -6,6 +6,7 @@
   "author": "sadness_ojisan <sadness.ojisan@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^7.0.0",
     "next": "^8.0.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
