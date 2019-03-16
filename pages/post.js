@@ -11,7 +11,7 @@ import ImageInput from "../components/common/ImageIcon";
 import { actions } from "../redux/modules/employee";
 import { actions as messageActions } from "../redux/modules/messagePost";
 import { type Store } from "../redux/modules";
-import { type TCards } from "../typedef/api/employee";
+import { type TEmployee } from "../typedef/api/employee";
 import { type TError } from "../typedef/api/error";
 import COLOR from "../constatns/color";
 import Button from "../components/common/Button";
@@ -20,7 +20,7 @@ import Text from "../components/common/Text";
 type MapStateToProps = {|
   +employeeIsLoading: boolean,
   +employeeIsLoaded: boolean,
-  +data: TCards | null,
+  +employeeData: TEmployee | null,
   +error: TError | null
 |};
 
