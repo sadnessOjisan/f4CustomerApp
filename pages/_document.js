@@ -22,7 +22,7 @@ export default class MyDocument extends Document {
 
         <Head>
           {this.props.styleTags}
-          <link rel="manifest" href="manifest.webmanifest" />
+          <link rel="manifest" href="/static/manifest.webmanifest" />
           <script
             async
             src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.8/pwacompat.min.js"
