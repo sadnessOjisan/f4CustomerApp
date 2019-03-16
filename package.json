@@ -4,5 +4,18 @@
   "main": "index.js",
   "repository": "https://github.com/sadnessOjisan/f4CustomerApp.git",
   "author": "sadness_ojisan <sadness.ojisan@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "next": "^8.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "scripts": {
+    "dev": "REACT_APP_ENV=1 next",
+    "build": "NODE_ENV=production REACT_APP_ENV=development next build",
+    "start": "REACT_APP_ENV=1 next start",
+    "export": "next export",
+    "deploy": "npm run build && npm run export",
+    "mock:local": "json-server ./db/db.json --routes ./db/routes.json --port 3004"
+  }
 }
