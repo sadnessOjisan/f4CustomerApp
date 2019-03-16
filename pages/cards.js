@@ -16,6 +16,7 @@ import { type TError } from "../typedef/api/error";
 import COLOR from "../constatns/color";
 import Button from "../components/common/Button";
 import Text from "../components/common/Text";
+import { getUrlVars } from "../helpers/util";
 
 type MapStateToProps = {|
   +isLoading: boolean,
@@ -55,9 +56,8 @@ class Cards extends React.Component<Props> {
 
   componentDidMount() {
     const { startFetchData, startFetchEmployeeData } = this.props;
-    const { id } = Router.router.query;
+    const { id } = getUrlVars();
     console.log(id);
-    console.log(Router);
     startFetchEmployeeData(id);
     startFetchData();
   }
