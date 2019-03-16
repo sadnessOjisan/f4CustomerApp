@@ -1,0 +1,16 @@
+{
+  "name": "Tippie",
+  "short_name": "Tippie",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0f0f0",
+  "theme_color": "#ff6600",
+  "description": "A simple Tippie PWA.",
+  "icons": [
+    {
+      "src": "/static/plane.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
