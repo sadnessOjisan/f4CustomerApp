@@ -3,7 +3,10 @@
 import * as React from "react";
 
 class Hello extends React.Component {
-  componentDidMount() {}
+  componentDidMount() {
+    console.log("process: ", process);
+    console.log("process.env: ", process.env);
+  }
 
   render() {
     return (
