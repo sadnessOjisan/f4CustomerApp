@@ -23,7 +23,7 @@ module.exports = {
     secondSecret: process.env.REACT_APP_ENV // Pass through env variables
   },
   publicRuntimeConfig: {
-    REACT_APP_ENV: process.env.REACT_APP_ENV,
-    PROCESS: process
+    REACT_APP_ENV: JSON.stringify(process.env.REACT_APP_ENV),
+    PROCESS: JSON.stringify(process)
   }
 };
