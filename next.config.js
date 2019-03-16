@@ -17,13 +17,7 @@ module.exports = {
     }
     return config;
   },
-  serverRuntimeConfig: {
-    // Will only be available on the server side
-    mySecret: "secret",
-    secondSecret: process.env.REACT_APP_ENV // Pass through env variables
-  },
   publicRuntimeConfig: {
-    REACT_APP_ENV: JSON.stringify(process.env.REACT_APP_ENV),
     PROCESS: JSON.stringify(process)
   }
 };
