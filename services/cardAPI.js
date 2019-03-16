@@ -2,9 +2,15 @@ import axios from "axios";
 import { getUrl } from "../helpers/util";
 
 const sampleAPI = {
-  fetchCards() {
+  fetchCards(count: number) {
+    const Length = 10;
     return axios
-      .get(getUrl("cards"))
+      .get(getUrl("cards"), {
+        params: {
+          count,
+          length: Length
+        }
+      })
       .then(response => ({
         payload: response.data
       }))

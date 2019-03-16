@@ -17,10 +17,12 @@ const Card = (props: Props) => {
   return (
     <Wrapper className={className}>
       <Header>
-        <Text>{card.name}</Text>
+        <Text>To</Text>
         <ImageIcon />
+        <Text>{card.name}</Text>
       </Header>
-      s
+      <Body>{card.message}</Body>
+      <Footer>今日</Footer>
     </Wrapper>
   );
 };
@@ -30,10 +32,18 @@ const Wrapper = styled.div`
   padding: 8px 12px;
   display: flex;
   flex-direction: column;
+  border-radius: 8px;
 `;
 
 const Header = styled.div`
   display: flex;
+`;
+
+const Footer = styled.div``;
+
+const Body = styled.div`
+  margin-top: 16px;
+  margin-bottom: 16px;
 `;
 
 export default Card;

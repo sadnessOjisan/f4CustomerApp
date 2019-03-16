@@ -2,8 +2,11 @@
 
 import * as React from "react";
 import { type Dispatch } from "redux";
+import styled from "styled-components";
 import { connect } from "react-redux";
+import { Waypoint } from "react-waypoint";
 import Card from "../components/Card";
+import Header from "../components/Header";
 import { actions } from "../redux/modules/card";
 import { type Store } from "../redux/modules";
 import { type TCards } from "../typedef/api/cards";
@@ -17,7 +20,8 @@ type MapStateToProps = {|
 |};
 
 type MapDispatchToProps = {|
-  +startFetchData: typeof actions.startFetchData
+  +startFetchData: typeof actions.startFetchData,
+  +startFetchMoreData: typeof actions.startFetchMoreData
 |};
 
 type Props = {|
@@ -31,24 +35,50 @@ class Hello extends React.Component<Props> {
     startFetchData();
   }
 
+  _handleWaypointEnter = () => {
+    const { startFetchMoreData } = this.props;
+    startFetchMoreData();
+  };
+
   render() {
     console.log(this.props);
     const { isLoading, isLoaded, data, error } = this.props;
     return (
-      <div className="wrapper">
+      <Wrapper>
+        <Header />
         {error ? (
           <p>err</p>
         ) : isLoaded && data ? (
-          data.map(card => {
-            return <Card card={card} />;
-          })
+          <CardWrapper>
+            {data.map(card => {
+              return <SCard card={card} />;
+            })}
+            <Waypoint onEnter={this._handleWaypointEnter} />
+          </CardWrapper>
         ) : (
           <p>loading</p>
         )}
-      </div>
+      </Wrapper>
     );
   }
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+`;
+
+const CardWrapper = styled.div`
+  width: 80%;
+  position: absolute;
+  top: 120px;
+`;
+
+const SCard = styled(Card)`
+  margin-top: 12px;
+`;
 
 const mapStateToProps = (state: Store): MapStateToProps => ({
   isLoading: state.card.isLoading,
@@ -58,7 +88,8 @@ const mapStateToProps = (state: Store): MapStateToProps => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
-  startFetchData: () => dispatch(actions.startFetchData())
+  startFetchData: () => dispatch(actions.startFetchData()),
+  startFetchMoreData: () => dispatch(actions.startFetchMoreData())
 });
 
 export default connect(
