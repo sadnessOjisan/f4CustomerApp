@@ -14,7 +14,8 @@ export const types = {
 };
 
 type startFetchDataAction = {|
-  +type: typeof START_FETCH_DATA
+  +type: typeof START_FETCH_DATA,
+  +payload: string
 |};
 
 type successFetchDataAction = {|
@@ -33,8 +34,9 @@ type Action =
   | failFetchDataAction;
 
 export const actions = {
-  startFetchData: (): startFetchDataAction => ({
-    type: types.START_FETCH_DATA
+  startFetchData: (id: string): startFetchDataAction => ({
+    type: types.START_FETCH_DATA,
+    payload: id
   }),
   successFetchData: (data: TEmployee): successFetchDataAction => ({
     type: types.SUCCESS_FETCH_DATA,

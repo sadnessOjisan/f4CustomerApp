@@ -38,8 +38,7 @@ export const actions = {
     payload: data
   }),
   successPostValue: (): successPostMessageAction => ({
-    type: types.SUCCESS_POST_MESSAGE,
-    payload: data
+    type: types.SUCCESS_POST_MESSAGE
   }),
   failPostValue: (err: TError): failPostMessageAction => ({
     type: types.FAIL_POST_MESSAGE,

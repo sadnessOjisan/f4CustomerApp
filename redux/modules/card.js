@@ -105,8 +105,7 @@ const reducer = (state: State = initialState, action: Action) => {
         ...state,
         isLoading: false,
         isLoaded: true,
-        data: action.payload,
-        cursor: state.cursor + 1
+        data: action.payload.cards
       };
     case types.FAIL_FETCH_DATA:
       return {
@@ -120,13 +119,15 @@ const reducer = (state: State = initialState, action: Action) => {
         ...state
       };
     case types.SUCCESS_FETCH_MORE_DATA:
+      console.log("state.data: ", state.data);
+      console.log("action.payload: ", action.payload);
       return {
         ...state,
         isLoading: false,
         isLoaded: true,
         data: state.data
           ? [...state.data, ...action.payload.cards]
-          : action.payload,
+          : action.payload.cards,
         cursor: state.cursor + 1
       };
     case types.FAIL_FETCH_MORE_DATA:

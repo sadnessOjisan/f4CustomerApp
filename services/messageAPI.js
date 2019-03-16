@@ -4,7 +4,7 @@ import { getUrl } from "../helpers/util";
 const messageAPI = {
   postMessage(value) {
     return axios
-      .post(getUrl("message"), { ...value })
+      .post(getUrl("card"), { ...value })
       .then(response => ({
         payload: response.data
       }))

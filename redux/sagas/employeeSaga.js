@@ -10,14 +10,14 @@ import { throwError } from "../../helpers/util";
 import { type Store } from "../modules";
 
 function* startFetchDataSaga(action) {
-  console.log(action);
+  const id = action.payload;
   const { payload, error }: { payload: TEmployee, error: TError } = yield call(
-    employeeAPI.fetchEmployee
+    employeeAPI.fetchEmployee,
+    id
   );
   if (payload && !error) {
     yield put(actions.successFetchData(payload));
     yield take(actions.successFetchData);
-    yield call(Router.push, "/posted");
   } else if (error) {
     yield put(actions.failFetchData(error));
     yield take(actions.failFetchData);

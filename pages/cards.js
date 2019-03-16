@@ -9,6 +9,7 @@ import { Waypoint } from "react-waypoint";
 import Card from "../components/Card";
 import Header from "../components/Header";
 import { actions } from "../redux/modules/card";
+import { actions as employeeActions } from "../redux/modules/employee";
 import { type Store } from "../redux/modules";
 import { type TCards } from "../typedef/api/cards";
 import { type TError } from "../typedef/api/error";
@@ -26,7 +27,8 @@ type MapStateToProps = {|
 
 type MapDispatchToProps = {|
   +startFetchData: typeof actions.startFetchData,
-  +startFetchMoreData: typeof actions.startFetchMoreData
+  +startFetchMoreData: typeof actions.startFetchMoreData,
+  +startFetchEmployeeData: typeof employeeActions.startFetchData
 |};
 
 type Props = {|
@@ -52,16 +54,15 @@ class Cards extends React.Component<Props> {
   // };
 
   componentDidMount() {
-    const { startFetchData } = this.props;
+    const { startFetchData, startFetchEmployeeData } = this.props;
+    const { id } = Router.router.query;
+    startFetchEmployeeData(id);
     startFetchData();
   }
 
   _handleWaypointEnter = () => {
     const { startFetchMoreData } = this.props;
     startFetchMoreData();
-    // this.setState({
-    //   data: [...this.state.data, ...this.state.data]
-    // });
   };
 
   render() {
@@ -75,7 +76,7 @@ class Cards extends React.Component<Props> {
           <p>err</p>
         ) : isLoaded && data ? (
           <CardWrapper>
-            {data.cards.map(card => {
+            {data.map(card => {
               return <SCard card={card} />;
             })}
             <Waypoint onEnter={this._handleWaypointEnter} />
@@ -143,7 +144,9 @@ const mapStateToProps = (state: Store): MapStateToProps => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
   startFetchData: () => dispatch(actions.startFetchData()),
-  startFetchMoreData: () => dispatch(actions.startFetchMoreData())
+  startFetchMoreData: () => dispatch(actions.startFetchMoreData()),
+  startFetchEmployeeData: (id: string) =>
+    dispatch(employeeActions.startFetchData(id))
 });
 
 export default connect(
