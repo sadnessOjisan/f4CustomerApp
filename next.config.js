@@ -20,5 +20,6 @@ module.exports = {
       "": { page: "hello" },
       hello: { page: "hello" }
     };
-  }
+  },
+  distDir: "../.next"
 };
