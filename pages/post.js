@@ -118,6 +118,7 @@ const Input = styled.textarea`
   border: 0;
   padding: 16px;
   display: block;
+  color: ${COLOR.warmBlack};
 `;
 
 const SImage = styled.img`

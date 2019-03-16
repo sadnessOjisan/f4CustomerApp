@@ -31,7 +31,23 @@ type Props = {|
   ...MapDispatchToProps
 |};
 
-class Hello extends React.Component<Props> {
+class Cards extends React.Component<Props> {
+  state = {
+    // APIできない間はstat使っとく
+    isLoading: false,
+    isLoaded: true,
+    data: [
+      { id: 1, name: "hoge", message: "333" },
+      { id: 2, name: "hoge", message: "fe" },
+      { id: 3, name: "gg", message: "33ff3" },
+      { id: 4, name: "feeee", message: "123" },
+      { id: 5, name: "f", message: "r" },
+      { id: 6, name: "f", message: "r" }
+    ],
+    error: null,
+    cursor: 0
+  };
+
   componentDidMount() {
     const { startFetchData } = this.props;
     startFetchData();
@@ -39,12 +55,16 @@ class Hello extends React.Component<Props> {
 
   _handleWaypointEnter = () => {
     const { startFetchMoreData } = this.props;
-    startFetchMoreData();
+    // startFetchMoreData();
+    this.setState({
+      data: [...this.state.data, ...this.state.data]
+    });
   };
 
   render() {
     console.log(this.props);
-    const { isLoading, isLoaded, data, error, cursor } = this.props;
+    // const { isLoading, isLoaded, data, error, cursor } = this.props;
+    const { isLoading, isLoaded, data, error, cursor } = this.state;
     return (
       <Wrapper cursor={cursor}>
         <Header />
@@ -103,4 +123,4 @@ const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Hello);
+)(Cards);
