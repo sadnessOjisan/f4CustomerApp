@@ -6,6 +6,7 @@
   "author": "sadness_ojisan <sadness.ojisan@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
     "dotenv": "^7.0.0",
     "next": "^8.0.3",
     "next-redux-saga": "^4.0.1",
