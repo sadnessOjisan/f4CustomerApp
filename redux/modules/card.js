@@ -124,7 +124,9 @@ const reducer = (state: State = initialState, action: Action) => {
         ...state,
         isLoading: false,
         isLoaded: true,
-        data: state.data ? [...state.data, ...action.payload] : action.payload,
+        data: state.data
+          ? [...state.data, ...action.payload.cards]
+          : action.payload,
         cursor: state.cursor + 1
       };
     case types.FAIL_FETCH_MORE_DATA:
