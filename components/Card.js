@@ -26,7 +26,7 @@ const Card = (props: Props) => {
         <Text color="#4a4a4a">{card.message}</Text>
       </Body>
       <Footer>
-        <Text color="#b2b2b2">
+        <Text color="#b2b2b2" size={12}>
           {moment(card.created_at).format("MM/DD HH:MM")}
         </Text>
       </Footer>
