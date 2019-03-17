@@ -38,22 +38,6 @@ type Props = {|
 |};
 
 class Cards extends React.Component<Props> {
-  // state = {
-  //   // APIできない間はstat使っとく
-  //   isLoading: false,
-  //   isLoaded: true,
-  //   data: [
-  //     { id: 1, name: "hoge", message: "333" },
-  //     { id: 2, name: "hoge", message: "fe" },
-  //     { id: 3, name: "gg", message: "33ff3" },
-  //     { id: 4, name: "feeee", message: "123" },
-  //     { id: 5, name: "f", message: "r" },
-  //     { id: 6, name: "f", message: "r" }
-  //   ],
-  //   error: null,
-  //   cursor: 0
-  // };
-
   componentDidMount() {
     const { startFetchData, startFetchEmployeeData } = this.props;
     const { id } = getUrlVars();
@@ -70,7 +54,6 @@ class Cards extends React.Component<Props> {
   render() {
     console.log(this.props);
     const { isLoading, isLoaded, data, error, cursor } = this.props;
-    // const { isLoading, isLoaded, data, error, cursor } = this.state;
     return (
       <Wrapper cursor={cursor}>
         <Header />
