@@ -23,6 +23,7 @@ const Img = styled.img`
   width: ${(props: Props) => (props.size ? props.size : DEFAULT_SIZE)}px;
   height: ${(props: Props) => (props.size ? props.size : DEFAULT_SIZE)}px;
   border-radius: 50%;
+  border: solid 1px #f47280;
 `;
 
 export default Image;
