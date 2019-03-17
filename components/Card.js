@@ -23,7 +23,7 @@ const Card = (props: Props) => {
         <Text color="#b2b2b2">{card.employee_name}</Text>
       </Header>
       <Body>
-        <Text color={COLOR.normal}>{card.message}</Text>
+        <Text color="#4a4a4a">{card.message}</Text>
       </Body>
       <Footer>
         <Text color="##b2b2b2">
