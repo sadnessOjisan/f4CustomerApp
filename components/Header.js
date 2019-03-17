@@ -11,7 +11,7 @@ const Header = () => {
     <Wrapper>
       <Row>
         <Text color={COLOR.background} size={20} bold={true}>
-          F4 Tip サービス
+          Tippy
         </Text>
       </Row>
       <Row>
