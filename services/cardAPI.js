@@ -1,3 +1,5 @@
+// @flow
+
 import axios from "axios";
 import { getUrl } from "../helpers/util";
 
@@ -18,7 +20,7 @@ const cardAPI = {
         error
       }));
   },
-  fetchCard(id) {
+  fetchCard(id: string) {
     return axios
       .get(getUrl("cards"), {
         params: {

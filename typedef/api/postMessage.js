@@ -1,5 +1,6 @@
 // @flow
 
 export type TPostMessage = {
-  message: string
+  message: string,
+  employee_id: string
 };

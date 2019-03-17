@@ -4,6 +4,8 @@ import Router from "next/router";
 import { call, takeEvery, put, select, take } from "redux-saga/effects";
 import { types, actions, type startFetchDataAction } from "../modules/employee";
 import { type TEmployee } from "../../typedef/api/employee";
+// @flow
+
 import { type TError } from "../../typedef/api/error";
 import employeeAPI from "../../services/employeeAPI";
 import { throwError } from "../../helpers/util";

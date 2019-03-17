@@ -1,3 +1,5 @@
+// @flow
+
 import Palette from "./pallet";
 import Pallet from "./pallet";
 

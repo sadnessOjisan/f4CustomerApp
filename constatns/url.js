@@ -1,4 +1,5 @@
 // @flow
+
 import ENVS from "./env";
 import getConfig from "next/config";
 
