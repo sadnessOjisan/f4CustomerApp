@@ -1,5 +1,6 @@
 // @flow
 
+import { type TCard } from "../../typedef/model/card";
 import { type TCards } from "../../typedef/api/cards";
 import { type TError } from "../../typedef/api/error";
 
@@ -83,7 +84,7 @@ export const actions = {
 export type State = {
   isLoading: boolean,
   isLoaded: boolean,
-  data: TCards | null,
+  data: TCard[] | null,
   error: TError | null,
   cursor: number
 };

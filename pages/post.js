@@ -6,7 +6,7 @@ import { type Dispatch } from "redux";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { Waypoint } from "react-waypoint";
-import { withFormik } from "formik";
+import { withFormik, type FormikProps } from "formik";
 import Header from "../components/Header";
 import ImageInput from "../components/common/ImageIcon";
 import { actions } from "../redux/modules/employee";
@@ -33,7 +33,8 @@ type MapDispatchToProps = {|
 
 type Props = {|
   ...MapStateToProps,
-  ...MapDispatchToProps
+  ...MapDispatchToProps,
+  ...FormikProps
 |};
 
 class Post extends React.Component<Props> {

@@ -17,11 +17,13 @@ import COLOR from "../constatns/color";
 import Button from "../components/common/Button";
 import Text from "../components/common/Text";
 import { getUrlVars } from "../helpers/util";
+import { Pulse } from "styled-spinkit";
+import { type TCard } from "../typedef/model/card";
 
 type MapStateToProps = {|
   +isLoading: boolean,
   +isLoaded: boolean,
-  +data: TCards | null,
+  +data: TCard[] | null,
   +error: TError | null,
   +cursor: number
 |};
@@ -77,7 +79,9 @@ class Cards extends React.Component<Props> {
             </SButton>
           </CardWrapper>
         ) : (
-          <p>loading</p>
+          <p>
+            <Pulse />
+          </p>
         )}
       </Wrapper>
     );
