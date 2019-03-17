@@ -26,7 +26,7 @@ export const throwError = (message: string) => {
   }
 };
 
-export const getUrlVars = () => {
+export const getUrlVars = (): { [string]: string } => {
   var vars = {};
   var param = location.search.substring(1).split("&");
   for (var i = 0; i < param.length; i++) {

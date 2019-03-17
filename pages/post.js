@@ -17,6 +17,7 @@ import { type TError } from "../typedef/api/error";
 import COLOR from "../constatns/color";
 import Button from "../components/common/Button";
 import Text from "../components/common/Text";
+import { Pulse } from "styled-spinkit";
 
 type MapStateToProps = {|
   +employeeIsLoading: boolean,
@@ -81,7 +82,7 @@ class Post extends React.Component<Props> {
             </Form>
           </React.Fragment>
         ) : (
-          `employeeIsLoaded:${employeeIsLoaded}`
+          <Pulse />
         )}
       </Wrapper>
     );
@@ -142,7 +143,7 @@ const mapStateToProps = (state: Store): MapStateToProps => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
-  startFetchData: () => dispatch(actions.startFetchData()),
+  startFetchData: (id: string) => dispatch(actions.startFetchData(id)),
   startPostValue: value => dispatch(messageActions.startPostValue(value))
 });
 

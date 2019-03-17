@@ -15,17 +15,9 @@ import { type TCards } from "../typedef/api/cards";
 import { type TError } from "../typedef/api/error";
 import COLOR from "../constatns/color";
 
-type MapStateToProps = {|
-  +isLoading: boolean,
-  +isLoaded: boolean,
-  +data: TCards | null,
-  +error: TError | null,
-  +cursor: number
-|};
+type MapStateToProps = {||};
 
-type MapDispatchToProps = {|
-  +startFetchData: typeof actions.startFetchData
-|};
+type MapDispatchToProps = {||};
 
 type Props = {|
   ...MapStateToProps,
@@ -58,16 +50,10 @@ const Wrapper = styled.div`
 const Inner = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 80%;
   height: 80%;
   background: ${COLOR.white};
 `;
 
-const mapStateToProps = (state: Store): MapStateToProps => ({});
-
-const mapDispatchToProps = (dispatch: Dispatch<any>) => ({});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Posted);
+export default Posted;
