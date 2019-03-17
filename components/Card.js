@@ -18,15 +18,17 @@ const Card = (props: Props) => {
   return (
     <Wrapper className={className}>
       <Header>
-        <Text>To</Text>
+        <Text color="#b2b2b2">To</Text>
         <ImageIcon size={28} src={card.employee_image} />
-        <Text>{card.employee_name}</Text>
+        <Text color="#b2b2b2">{card.employee_name}</Text>
       </Header>
       <Body>
         <Text color={COLOR.normal}>{card.message}</Text>
       </Body>
       <Footer>
-        <Text>{moment(card.created_at).format("MM/DD HH:MM")}</Text>
+        <Text color="##b2b2b2">
+          {moment(card.created_at).format("MM/DD HH:MM")}
+        </Text>
       </Footer>
     </Wrapper>
   );
