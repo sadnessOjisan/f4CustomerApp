@@ -8,11 +8,6 @@ const { publicRuntimeConfig } = getConfig()
   : { publicRuntimeConfig: { REACT_APP_ENV: null } };
 const { REACT_APP_ENV } = publicRuntimeConfig;
 
-console.log(
-  "publicRuntimeConfig.REACT_APP_ENV",
-  publicRuntimeConfig.REACT_APP_ENV
-);
-
 let host;
 
 switch (REACT_APP_ENV) {

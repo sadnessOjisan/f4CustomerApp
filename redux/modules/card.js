@@ -120,8 +120,6 @@ const reducer = (state: State = initialState, action: Action) => {
         ...state
       };
     case types.SUCCESS_FETCH_MORE_DATA:
-      console.log("state.data: ", state.data);
-      console.log("action.payload: ", action.payload);
       return {
         ...state,
         isLoading: false,

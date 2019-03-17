@@ -53,7 +53,6 @@ class Post extends React.Component<Props> {
       employeeIsLoading,
       employeeData
     } = this.props;
-    console.log("this.props:", this.props);
     const { handleSubmit, handleChange } = this.props;
     return (
       <Wrapper>

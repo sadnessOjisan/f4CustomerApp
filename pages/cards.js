@@ -43,7 +43,6 @@ class Cards extends React.Component<Props> {
   componentDidMount() {
     const { startFetchData, startFetchEmployeeData } = this.props;
     const { id } = getUrlVars();
-    console.log(id);
     startFetchEmployeeData(id);
     startFetchData();
   }
@@ -54,7 +53,6 @@ class Cards extends React.Component<Props> {
   };
 
   render() {
-    console.log(this.props);
     const { isLoading, isLoaded, data, error, cursor } = this.props;
     return (
       <Wrapper cursor={cursor}>
