@@ -13,8 +13,9 @@ import messageAPI from "../../services/messageAPI";
 import { throwError } from "../../helpers/util";
 import { type Store } from "../modules";
 
-function* startPostMessageSaga(action: startPostMessageAction) {
-  console.log("fire startPostMessageSaga action: ", action);
+function* startPostMessageSaga(
+  action: startPostMessageAction
+): Generator<*, *, *> {
   const value = action.payload;
   const employeeId = yield select(state => state.employee.data.id);
   const postValue = { ...value, employee_id: employeeId };
@@ -32,7 +33,6 @@ function* startPostMessageSaga(action: startPostMessageAction) {
   }
 }
 
-// $FlowFixMe TODO
-export default function* cardSaga() {
+export default function* cardSaga(): Generator<*, *, *> {
   yield takeEvery(types.START_POST_MESSAGE, startPostMessageSaga);
 }

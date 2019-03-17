@@ -13,7 +13,7 @@ export const types = {
   FAIL_FETCH_DATA
 };
 
-type startFetchDataAction = {|
+export type startFetchDataAction = {|
   +type: typeof START_FETCH_DATA,
   +payload: string
 |};

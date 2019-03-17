@@ -38,8 +38,7 @@ function* startFetchMoreDataSaga(action) {
   }
 }
 
-// $FlowFixMe TODO
-export default function* cardSaga() {
+export default function* cardSaga(): Generator<*, *, *> {
   yield takeEvery(types.START_FETCH_DATA, startFetchData);
   yield takeEvery(types.START_FETCH_MORE_DATA, startFetchMoreDataSaga);
 }
