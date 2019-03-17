@@ -19,7 +19,7 @@ const Card = (props: Props) => {
     <Wrapper className={className}>
       <Header>
         <Text>To</Text>
-        <ImageIcon size={28} />
+        <ImageIcon size={28} src={card.employee_image} />
         <Text>{card.employee_name}</Text>
       </Header>
       <Body>
