@@ -122,6 +122,7 @@ const Input = styled.textarea`
   padding: 16px;
   display: block;
   color: ${COLOR.warmBlack};
+  font-size: 14px;
 `;
 
 const SImage = styled.img`
